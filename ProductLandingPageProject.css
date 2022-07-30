@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /*Erase any previous sizing specifications and make borders part of size*/
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+}
+
+#page-wrapper {
+    position: relative;     /*Able to adjust objects relative to the page if need be*/
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;            
+    max-width: 1000px;
+}
+
+/*MOBILE ADJUSTMENTS*/
+@media(max-width: 600px)
+{
+    header{
+        flex-wrap: wrap;  /*This will bring the navbar underneath logo when needed*/
+    }
+
+    .logo-container{
+        width: 100%; /*Takes up first row 60vw, centered, nav can go underneath thanks to flex-wrap*/
+        min-height: 10px;
+        margin: 0 auto;    /*center logo container*/
+        margin-bottom: -5px;
+    }
+
+    #header-img{
+        position: relative;
+        right: 30px;
+    }
+
+    nav{
+        width: 100%;
+        margin-top: 10px;  
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 50px;
+    }
+
+    nav > ul >li{
+        padding: 5px 10px;
+    }
+}
+/*MOBILE ADJUSTMENTS*/
+
+header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+    padding: 0px 20px;
+    
+    background-color: lightgray;
+}
+
+.logo-container {
+    width: 60vw;
+}
+
+#header-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+}
+
+nav {
+    font-weight: 400;
+}
+
+nav > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 35vw;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#hero {
+    display: flex;
+    flex-direction: column;     
+    align-items: center;       /*Line eveything up in the middle horizontally if possible*/
+    justify-content: center;   /*Vertical middle*/
+    text-align: center;        /*This centers the email and button element horizontally in their block element*/
+    height: 130px;             
+    margin-top: 90px;          /*Surpass the fixed header of 70px*/
+}
+
+/*MOBILE ADJUSTMENTS*/
+@media(max-width: 600px)
+{
+    #hero{
+        margin-top: 130px;
+    }
+}
+/*MOBILE ADJUSTMENTS*/
+
+
+#hero > h2 {
+    margin-bottom: 20px;
+    word-wrap: break-word;
+}
+
+#hero input[type='email'] {
+    max-width: 275px;
+    width: 100%;
+    padding: 10px;
+}
+
+#hero input[type='submit'] {
+    max-width: 140px;   /*Would jump to 275px at 100% bc inline-block with email*/
+    width: 100%;
+    height: 30px;
+    margin: 15px 0;
+    background-color: #f1c40f;
+}
+
+.button {
+    height: 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 0;
+    cursor: pointer;
+}
+
+#features {
+    margin-top: 30px;
+}
+
+/*This allows grid rows to be different sizes depending on length of description*/
+.grid {
+    display: flex; 
+    height: 125px;                 
+}
+
+#features .icon {                   /*img container*/
+    display: flex;
+    align-items: center;
+    justify-content: center;        /*Keep the img inside centered both ways*/
+    width: 20vw;                    
+    color: darkorange;
+}
+
+#features .desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;        /*Center text box vertically adjacent to img*/
+    width: 80vw;                    /*Make the text the other 80% of page view*/
+    padding: 5px;
+}
+
+/*MOBILE ADJUSTMENTS*/
+@media(max-width: 600px)
+{
+    #features{
+        margin: 0;
+    }
+
+    #features .icon{
+        display: none;
+    }
+
+    #features .grid{
+        justify-content: center;
+        margin: 15px 0;
+    }
+}
+/*MOBILE ADJUSTMENTS*/
+
+h2{
+    font-weight: bold;
+    font-size: 1.5rem;              
+}
+
+#how-it-works {
+    margin-top: 50px;               
+    display: flex;
+    justify-content: center;    /*Centers video horizontally*/
+}
+
+#how-it-works > iframe {
+    max-width: 560px;
+    width: 100%;                /*If the frame is < 560px readjust to fit frame*/
+}
+
+/*MOBILE ADJUSTMENTS*/
+@media(max-width: 650px)
+{
+    #how-it-works > iframe{
+        width: 80%;
+        max-width: 400px;
+    }
+}
+/*MOBILE ADJUSTMENTS*/
+
+#pricing {
+    margin-top: 60px;           
+    display: flex;
+    flex-direction: row;
+    justify-content: center;    
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;        /*align items horizontally*/
+    text-align: center;
+    width: calc(100% / 3);     /*Since there are 3 products make each 1/3 the page width*/
+    margin: 10px;               /*This will put space inbetween, width considers this when calculating*/
+    border: 1px solid #000;
+    border-radius: 3px;
+}
+
+.product > .level {
+    background-color: #ddd;
+    color: black;
+    padding: 15px;   /*Padding will automatically vertically center text*/ /*Unlike height*/
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.product > h2 {
+    margin-top: 15px;
+}
+
+.product > ol {
+    margin: 15px 0;     
+}
+
+.product > ol > li {
+    padding: 5px 0;  /*Again this auto centers vertically unlike height*/
+    list-style: none;
+}
+
+.product > button {
+    margin: 15px 0;
+    padding: 0 10px;
+    background-color: #f1c40f;
+    
+}
+
+/*MOBILE ADJUSTMENTS*/
+@media(max-width: 800px){
+    #pricing{
+        flex-direction: column;
+    }
+
+    .product{
+        width: calc(100% / 2);
+        min-width: 300px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+}
+/*MOBILE ADJUSTMENTS*/
+
+footer {
+    margin-top: 30px;
+    background-color: #ddd;
+    padding: 20px;
+}
+
+footer > ul {           /*list takes up 100% width*/
+    display: flex;
+    justify-content: flex-end;
+}
+
+footer > ul > li {
+    padding: 0 10px; /*Separate footer listed items evenly*/
+}
+
+footer > span {
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.9em;
+    color: darkgray;
+}
+
+/*MOBILE ADJUSTMENTS*/
+@media(max-width: 800px){
+    footer > ul, footer > span{
+        justify-content: center;
+    }
+}
+/*MOBILE ADJUSTMENTS*/
